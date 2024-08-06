@@ -19,6 +19,12 @@ Route::prefix('errors')->group(function () {
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 
+    Route::prefix('breaking-news')->group(function () {
+        Route::get('/', [App\Http\Controllers\Admin\BreakingNewsController::class, 'index'])->name('admin.breaking-news');
+        Route::post('/create', [App\Http\Controllers\Admin\BreakingNewsController::class, 'create'])->name('admin.breaking-news.create');
+        Route::get('/{id}/remove', [App\Http\Controllers\Admin\BreakingNewsController::class, 'remove'])->name('admin.breaking-news.remove');
+    });
+
     Route::prefix('live-tv')->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\LiveTvController::class, 'index'])->name('admin.live-tv');
         Route::post('/create', [App\Http\Controllers\Admin\LiveTvController::class, 'create'])->name('admin.live-tv.create');

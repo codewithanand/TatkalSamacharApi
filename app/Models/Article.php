@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Media;
-
-
+use App\Models\BreakingNews;
 
 class Article extends Model
 {
@@ -33,5 +32,10 @@ class Article extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class, 'article_id', 'id');
+    }
+
+    public function breakingNews()
+    {
+        return $this->hasMany(BreakingNews::class, 'article_id', 'id');
     }
 }

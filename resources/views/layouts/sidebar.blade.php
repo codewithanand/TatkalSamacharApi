@@ -34,8 +34,13 @@
     </li>
     <li class="nav-item {{ Request::is('admin/live-tv') ? 'active' : '' }}">
         <a class="nav-link" href="{{ url('/admin/live-tv') }}">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-satellite-dish"></i>
             <span>Live TV</span></a>
+    </li>
+    <li class="nav-item {{ Request::is('admin/breaking-news') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('/admin/breaking-news') }}">
+            <i class="fas fa-video"></i>
+            <span>Breaking News</span></a>
     </li>
 
     <!-- Divider -->
